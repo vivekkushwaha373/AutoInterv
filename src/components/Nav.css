@@ -1,0 +1,32 @@
+.hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-direction: column;
+    display: none;
+}
+.ham {
+    width: 40px;
+    height: 2px;
+    background-color: aliceblue;
+    transition: all 0.5s;
+    color:white
+}
+.activeham .ham:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 8px;
+}
+.activeham .ham:nth-child(2) {
+    opacity: 0;
+}
+
+.activeham .ham:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -12px;
+}
+.activemobile {
+    transform: translateX(0%);
+}
