@@ -59,10 +59,10 @@ const InterviewformPage = () => {
                     <input onChange={changeHandler} type="text" id="years" name="years" value={formData.years} className='border border-gray-700 rounded-md w-full p-2' />
                 </div>  
                  
-                <button className='rounded-xl p-2 outline-gray-600 text-white bg-black w-fit mx-auto'>
+                <button disabled={loading} className='rounded-xl p-2 outline-gray-600 text-white bg-black w-fit mx-auto'>
                     {
                         loading ? (
-                            <p className='flex'><span className='text-white'>Fetching </span><Loader2 className='text-white animate-spin'></Loader2></p>
+                            <p className='flex'><span className='text-white'>Preparing </span><Loader2 className='text-white animate-spin'></Loader2></p>
                             
                             
                         ):("submit")

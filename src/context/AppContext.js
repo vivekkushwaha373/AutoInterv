@@ -205,7 +205,7 @@ export default function AppContextProvider({ children }) {
             setError(errorMessage);
             // toast.error(errorMessage);
             setIsLoggedIn(false);
-            navigate('/login');
+            navigate('/');
             throw new Error(errorMessage);
         }
     }

@@ -4,6 +4,8 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 
 // import from react-webcam
 import { GrWebcam } from "react-icons/gr";
+import { IoVolumeMuteOutline } from "react-icons/io5"
+import { IoVolumeHighOutline } from "react-icons/io5";
 import { FcNext } from "react-icons/fc";
 import Webcam from 'react-webcam';
 import { AppContext } from '../context/AppContext';
@@ -12,12 +14,12 @@ import { FcPrevious } from "react-icons/fc";
 // import Questions from '../Questions';
 import { IoMicOutline } from "react-icons/io5";
 import {Volume2} from 'lucide-react'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 
 const Interview = () => {
-    
-    const {Question} = useContext(AppContext);
+    const location = useLocation();
+    const { Question, setQuestion} = useContext(AppContext);
     let [webCamEnabled, setwebCamEnabled] = useState(false);
     let [start, setStart] = useState(false);
     const [inputvalue, setInputValue] = useState('');
@@ -28,11 +30,18 @@ const Interview = () => {
     let divRef = useRef(null);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const [disabled, isSetDisabled] = useState(false);
     // let isRecording = useRef(false);
 
     const { formData, InterviewSubmission } = useContext(AppContext);
     const { transcript, browserSupportsSpeechRecognition, resetTranscript, listening } = useSpeechRecognition();
    
+    useEffect(() => {
+        if (location.pathname == '/interviewpage' && Question.length==0)
+        {
+            navigate('/interformpage');
+        }
+    },[])
 
     useEffect(() => {
         if (preventFirst.current) {
@@ -40,6 +49,7 @@ const Interview = () => {
         }
         else {
             divRef.current.textContent = Answer?.current[currentSlide]?.answer || '';
+            if(!disabled)
             textToSpeech(Question[currentSlide].question);
         }
 
@@ -82,7 +92,11 @@ const Interview = () => {
     //         Answer.current[currentSlide] = { answer: userAnswer };
     //     }
     // }, [userAnswer]);
-
+   
+    const cancleTextToSpeech = () => {
+        window.speechSynthesis.cancel();
+    }
+    
     const textToSpeech = (text) => {
         if ('speechSynthesis' in window) {
             const speech = new SpeechSynthesisUtterance(text);
@@ -123,6 +137,7 @@ const Interview = () => {
             setLoading(true);
             await InterviewSubmission(role, description, years, Question, Answer.current);
             navigate('/feedbackpage');
+            setQuestion([]);
         }
         catch (error) {
             //
@@ -168,7 +183,16 @@ const Interview = () => {
                     
                     <p className='text-center font-bold text-lg'>Question :{currentSlide+1}</p>
                     <p className='font-bold text-left mt-4 text-2xl'> {Question[currentSlide]?.question}</p>
-                    <Volume2 className='cursor-pointer' onClick={() => textToSpeech(Question[currentSlide].question)}></Volume2>
+                    {
+                        disabled ?
+                            <IoVolumeMuteOutline className='cursor-pointer text-[30px] ' onClick={() => {
+                                isSetDisabled(!disabled)
+                                textToSpeech(Question[currentSlide].question)
+                            }} /> : <IoVolumeHighOutline className='cursor-pointer text-[30px]' onClick={() => {
+                                cancleTextToSpeech();
+                                isSetDisabled(!disabled)
+                            }} />
+                    }
                    
                     <button onClick={nextSlide} >
                         <FcNext className='absolute right-0 top-[48%] w-10 h-10' />
@@ -211,7 +235,7 @@ const Interview = () => {
                 <div className='mt-40 flex flex-wrap justify-center items-center gap-3'>
                     <button className='p-2 text-white bg-blue-500 rounded-lg px-4  mr-2' onClick={startInterview}>{start == false ? <h1>Start your Interview</h1> : <h1>Close Interview</h1>}</button>
 
-                    <button className='p-2 text-white bg-blue-500 rounded-lg px-4 ' onClick={submitInterview}>
+                    <button disabled={loading} className='p-2 text-white bg-blue-500 rounded-lg px-4 ' onClick={submitInterview}>
                         {
                             loading ? (<p className='flex'><span className='text-white'>Submitting  </span><Loader2 className='text-white animate-spin'></Loader2></p>) : ("Submit Interview")
 
