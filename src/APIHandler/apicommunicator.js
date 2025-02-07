@@ -38,7 +38,7 @@ export const setMychat = async () => {
 export const APIlogin = async (email, password) => {
     try
     {
-        const res = await axios.post('/login', { email, password });
+        const res = await axios.post('/login', { email, password }, { withCredentials: true });
         if (res.status == 200) {
             toast.success(res.data?.message);
             return res.data;
@@ -55,7 +55,7 @@ export const APIlogin = async (email, password) => {
 
 export const forget = async (email) => {
     try {
-        const res = await axios.post('/forgetpassword', { email });
+        const res = await axios.post('/forgetpassword', { email }, { withCredentials: true });
         if (res.status == 200) {
             toast.success(res.data?.message);
             return res;
@@ -73,7 +73,7 @@ export const forget = async (email) => {
 
 export const checkAuthStatus = async () => {
     try {
-        const res = await axios.get('/auth');
+        const res = await axios.get('/auth', { withCredentials: true });
 
         if (res.status == 200) {
             // toast.success(res.data?.message);
@@ -91,7 +91,7 @@ export const checkAuthStatus = async () => {
 export const verifyOTP = async (signUpform) => {
     try {
         const res = await axios.post('/signup', 
-           signUpform
+            signUpform, { withCredentials: true }
         );
         if (res.status == 200) {
             toast.success(res.data?.message);
@@ -109,7 +109,7 @@ export const sentOTP = async (email) => {
     try {
         const res = await axios.post('/sendotp', {
             email
-        });
+        }, { withCredentials: true });
         console.error(res);
         if (res.status == 200) {
             toast.success(res.data?.message);
@@ -126,7 +126,7 @@ export const sentOTP = async (email) => {
 //pending
 export const userLogout = async () => {
     try {
-        const res = await axios.get('/logout');
+        const res = await axios.get('/logout', { withCredentials: true });
         if (res.status == 200) {
             toast.success(res.data?.message);
             return res;
@@ -145,7 +145,7 @@ export const reset = async (token, password, confirmpassword) => {
             token,
             password,
             confirmpassword
-        })
+        }, { withCredentials: true })
         if (res.status == 200) {
             toast.success(res.data?.message);
             return res;
@@ -164,7 +164,7 @@ export const changemypass = async (oldpass,newpass,confirmpass) => {
             oldpass,
             newpass,
             confirmpass
-        })
+        }, { withCredentials: true })
         if (res.status == 200) {
             toast.success(res.data?.message);
             return res;
@@ -179,7 +179,7 @@ export const changemypass = async (oldpass,newpass,confirmpass) => {
 
 export const clearchat = async () => {
     try {
-        const res = await axios.delete('/deletechat');
+        const res = await axios.delete('/deletechat', { withCredentials: true });
         if (res.status == 200) {
             toast.success(res.data?.message);
             return res.data
@@ -194,7 +194,7 @@ export const clearchat = async () => {
 
 export const sendRequest = async (message) => {
     try {
-        const res = await axios.post('/new', { message });
+        const res = await axios.post('/new', { message }, { withCredentials: true });
         if (res.status == 200) {
             toast.success(res.data?.message);
             return res.data;
@@ -214,7 +214,7 @@ export const getQuestion = async (role,description,years) => {
             role,
             description,
             years
-        })
+        }, { withCredentials: true })
         if (res.status == 200) {
             toast.success(res.data?.message);
             return res.data;
@@ -232,7 +232,7 @@ export const finalInterviewSubmission = async (role, description, years, Questio
     try {
         const res = await axios.post('/interviewSubmission', {
             role, description, years, Question, Answer
-        })
+        }, { withCredentials: true })
         if (res.status == 200)
         {
             toast.success(res.data?.message);
@@ -248,7 +248,7 @@ export const finalInterviewSubmission = async (role, description, years, Questio
 
 export const fetchMyInterview = async () => {
     try {
-        const res = await axios.get('/getinterview')
+        const res = await axios.get('/getinterview', { withCredentials: true })
         if (res.status == 200) {
             toast.success(res.data?.message);
             return res.data;
@@ -265,7 +265,7 @@ export const deletemyfeedback = async (id) => {
     try {
         const res = await axios.delete('/deletefeedback', {
             data: { id },
-        });
+        }, { withCredentials: true });
         if (res.status == 200) {
             
             return res.data;
