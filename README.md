@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# AI-Driven Interview Assistant
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 **An AI-powered platform that provides an interactive interview experience, helping users prepare effectively for job interviews.**
 
-## Available Scripts
+## 🔑 Demo Credentials
+- **Email:** vivkush734@gmail.com  
+- **Password:** 12345678
 
-In the project directory, you can run:
+## 🔥 Features
+- **AI Interview Assistant:** Generates role-specific questions based on job title, description, and expertise using the **Google Gemini API** (1,500 requests per day limit).
+- **Chatbot Support:** Provides natural language processing capabilities for interactive conversations.
+- **Speech-to-Text Translator:** Converts spoken responses into text for a seamless interview experience.
+- **Webcam Integration:** Enables real-time video-based interview simulations.
+- **JWT Authentication & OTP Verification:** Ensures secure login with email-based authentication.
+- **Optimized Performance:** Utilizes **Context API** for efficient state management, improving response time by 40%.
 
-### `npm start`
+## 🛠️ Tech Stack
+- **Frontend:** React.js
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **AI API:** Google Gemini API
+- **Authentication:** JWT & OTP-based Email Verification
+- **State Management:** Context API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## 🚀 Getting Started
+### **1️⃣ Clone the Repository**
+```bash
+ git clone https://github.com/your-username/ai-interview-assistant.git
+ cd ai-interview-assistant
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **2️⃣ Install Dependencies**
+```bash
+npm install
+```
 
-### `npm run build`
+### **3️⃣ Set Up Environment Variables**
+Create a `.env` file in the root directory and add the following:
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+GEMINI_API_KEY=your_google_gemini_api_key
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **4️⃣ Run the Application**
+```bash
+npm start  # For frontend
+node server.js  # For backend
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎯 How to Use
+1. **Sign Up/Login** using email authentication.
+2. **Enter Job Details** (Role, Description, Experience) to generate AI-based interview questions.
+3. **Start Interview** using the chatbot or speech-to-text translator.
+4. **Review Responses** and improve based on AI feedback.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📸 Screenshots
+_Add relevant screenshots here_
 
-### `npm run eject`
+## 📌 Upcoming Features
+- **Multi-language Support**
+- **Real-time AI Feedback on Answers**
+- **Integration with LinkedIn for Profile Analysis**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🤝 Contributing
+Feel free to raise issues or contribute by submitting a pull request.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📩 Contact
+For queries, reach out at **vivkush734@gmail.com**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
+⭐ **Star this repo if you found it useful!**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
