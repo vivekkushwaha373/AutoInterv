@@ -68,26 +68,23 @@ const ChatRoom = () => {
     }
 
     return (
-        <div className="w-full px-8 pt-6 h-screen bg-slate-900 overflow-y-hidden ">
+        <div className="w-full sm:px-8 px-2 pt-6 h-auto bg-slate-900 overflow-y-clip">
             <div className='w-full flex gap-3 h-[80%]'>
                 {/* section1         */}
                 <div className=' sm:w-[30%] w-[0px] hidden h-fit outline rounded-md sm:flex flex-col items-center text-start p-2 pb-16 gap-4 bg-slate-700'>
                     <img src={`https://ui-avatars.com/api/?name=${firstname}+${lastname}`} alt="user-img" className=' rounded-full' />
 
                     <p className='text-white font-semibold font-serif'>You are talking to ChatBot</p>
-                    <p className='mt-5 text-white font-semibold font-mono text-wrap text-center'>You can ask some questions
-                        related to Knowledge. Business, Advices,
-                        Education, etc. But avoid sharing personal
-                        Information.
+                    <p className='mt-5 text-white font-semibold font-mono text-wrap text-center'>You can ask questions related to knowledge, business, advice, and education. However, please avoid sharing personal information.
                     </p>
                     <button className=' mt-[40%] bg-orange-500 text-lg text-white p-2 font-serif font-bold rounded-xl' onClick={clearChat}>CLEAR CONVERSATION</button>
                 </div>
                 {/* section2 */}
                 <div className='w-full h-full'>
 
-                    <div className='w-full h-full overflow-y-scroll overscroll-behavior-y: revert'>
+                    <div className='chatdiv w-full h-[75vh] overflow-y-scroll overscroll-behavior-y: revert'>
                         <p className="text-4xl font-semibold text-center font-serif mb-6 text-white">Model-GPT 3.5 Turbo</p>
-                        <div className='flex flex-col gap-2  max-h-full'>
+                        <div  className='flex flex-col gap-2  max-h-full'>
                             {
                                 Entiremessage.map(({ role, content }, index) => {
                                     return <ChatBlocks key={index} role={role} content={content}></ChatBlocks>

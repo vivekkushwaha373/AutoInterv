@@ -20,7 +20,7 @@ function App() {
   const location = useLocation();
   
   return (
-    <div className="w-full h-screen ">
+    <div className="w-full h-screen bg-slate-900 ">
       <div>
         {!(location.pathname=='/otp')&&<Navbar></Navbar>}
         
