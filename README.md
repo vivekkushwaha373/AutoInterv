@@ -27,8 +27,8 @@
 ## 🚀 Getting Started
 ### **1️⃣ Clone the Repository**
 ```bash
- git clone https://github.com/your-username/ai-interview-assistant.git
- cd ai-interview-assistant
+ git clone https://github.com/vivekkushwaha373/AutoInterv.git
+ cd AutoInterv
 ```
 
 ### **2️⃣ Install Dependencies**
