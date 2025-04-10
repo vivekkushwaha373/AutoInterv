@@ -68,7 +68,7 @@ const ChatRoom = () => {
     }
 
     return (
-        <div className="w-full sm:px-8 px-2 pt-6 h-auto bg-slate-900 overflow-y-clip">
+        <div className="w-full sm:px-8 px-2 pt-6 h-auto overflow-y-clip">
             <div className='w-full flex gap-3 h-[80%]'>
                 {/* section1         */}
                 <div className=' sm:w-[30%] w-[0px] hidden h-fit outline rounded-md sm:flex flex-col items-center text-start p-2 pb-16 gap-4 bg-slate-700'>
@@ -94,9 +94,9 @@ const ChatRoom = () => {
                         </div>
                     </div >
 
-                    <form onSubmit={onSubmitHandler} className='w-full flex '>
+                    <form onSubmit={onSubmitHandler} className='w-full flex border-2 rounded-lg border-black'>
                         <input type="text" name="message" value={formdata.message} onChange={onChangeHandler} className="w-full p-4 rounded-l-lg " />
-                        <button className='text-lg p-4 bg-white rounded-r-lg' ><AiOutlineSend /></button>
+                        <button className='text-lg p-4 bg-white  rounded-r-lg' ><AiOutlineSend /></button>
                     </form>
                 </div>
             </div>

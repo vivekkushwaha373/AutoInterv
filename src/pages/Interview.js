@@ -128,7 +128,8 @@ const Interview = () => {
 
     async function submitInterview() {
         Answer.current[currentSlide] = { answer: divRef?.current?.textContent };
-        stopSpeechToText();
+        // stopSpeechToText();
+        cancleTextToSpeech();
         let role = formData.role;
         let description = formData.description;
         let years = formData.years;
