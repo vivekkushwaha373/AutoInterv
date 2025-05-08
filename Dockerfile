@@ -1,6 +1,8 @@
 # Use official Node.js image to build the React app
 FROM node:20 as build
 
+ARG REACT_APP_BASE_URL            
+ENV REACT_APP_BASE_URL=$REACT_APP_BASE_URL  
 # Set working directory inside the container
 WORKDIR /app
 

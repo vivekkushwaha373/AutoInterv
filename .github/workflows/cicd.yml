@@ -1,5 +1,7 @@
 name: Deploy React Application
 
+
+
 on:
     push:
         branches: 
@@ -13,7 +15,9 @@ jobs:
             - name: Login to Docker Hub
               run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
             - name: Build docker Image
-              run: docker build -t vivkus/reactjs-app .
+              run: docker build \
+               --build-arg REACT_APP_BASE_URL=${{ secrets.REACT_APP_BASE_URL }} \
+               -t vivkus/reactjs-app .
             - name: Publish Image to docker hub
               run: docker push vivkus/reactjs-app:latest
     deploy:
