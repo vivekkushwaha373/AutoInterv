@@ -126,7 +126,7 @@ export const sentOTP = async (email) => {
 //pending
 export const userLogout = async () => {
     try {
-        const res = await axios.get('/logout', { withCredentials: true });
+        const res = await axios.post('/logout', {}, { withCredentials: true });
         if (res.status == 200) {
             toast.success(res.data?.message);
             return res;
