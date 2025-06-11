@@ -11,7 +11,9 @@
 .chatdiv{
   scrollbar-width: none;
 }
-
+.feeddiv{
+  scrollbar-width: none;
+}
 
 body {
   margin: 0;
