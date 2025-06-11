@@ -4,6 +4,7 @@ import data from '../data';
 import Feedback from '../components/Feedback';
 import { useNavigate } from 'react-router-dom';
 
+
 const Feedbackpage = () => {
 
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const Feedbackpage = () => {
         <div className='bg-slate-800/30 backdrop-blur-sm rounded-xl border border-slate-700/50 mb-6'>
           <div className=' p-4 feeddiv'>
             {
-              currfeedback.map(({ question, answer, isCorrect, feedback }, index) => {
+              currfeedback?.map(({ question, answer, isCorrect, feedback }, index) => {
                 return <Feedback key={index} question={question} answer={answer} isCorrect={isCorrect} feedback={feedback}></Feedback>
               })
             }

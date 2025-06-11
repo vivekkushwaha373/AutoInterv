@@ -5,14 +5,23 @@ import { useNavigate } from 'react-router-dom';
 import { fetchMyInterview } from '../APIHandler/apicommunicator';
 
 const InterviewPage = () => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetchMyInterview();
+        setinterviewgiven(res.data);
+      } catch (error) {
+        console.error('Error fetching interviews:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const { setinterviewgiven } = useContext(AppContext);
   const { interviewgiven } = useContext(AppContext);
   const navigate = useNavigate();
-  useEffect(async () => { 
-     const res = await fetchMyInterview();
-      setinterviewgiven(res.data);
-  }, [])
-
+ 
   return (
     <div className='min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950'>
       <div className='w-11/12 max-w-6xl mx-auto py-8'>
