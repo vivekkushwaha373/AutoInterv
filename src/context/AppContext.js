@@ -177,7 +177,7 @@ export default function AppContextProvider({ children }) {
             const res=await userLogout();
             // toast.success('User Logged out');
             setIsLoggedIn(false);
-            navigate('/');
+            navigate('/')
             return res;
         }
         catch (error) {

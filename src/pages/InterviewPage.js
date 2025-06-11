@@ -1,12 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import FetchInterview from '../components/FetchInterview'
 import { AppContext } from '../context/AppContext'
 import { useNavigate } from 'react-router-dom';
+import { fetchMyInterview } from '../APIHandler/apicommunicator';
 
 const InterviewPage = () => {
-
+  const { setinterviewgiven } = useContext(AppContext);
   const { interviewgiven } = useContext(AppContext);
   const navigate = useNavigate();
+  useEffect(async () => { 
+     const res = await fetchMyInterview();
+      setinterviewgiven(res.data);
+  }, [])
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950'>

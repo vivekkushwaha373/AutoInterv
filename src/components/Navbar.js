@@ -28,7 +28,7 @@ const Navbar = () => {
   async function logmeout() {
     try {
       await LogOut()
-      navigate("/")
+     
     } catch (error) { }
   }
 

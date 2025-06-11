@@ -2,6 +2,8 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 
 
+
+
 export const changeprofile = async(firstname,lastname,email)=>{
     try {
         const res = await axios.post('/changeprofile', { firstname, lastname, email });
@@ -126,6 +128,7 @@ export const sentOTP = async (email) => {
 //pending
 export const userLogout = async () => {
     try {
+        
         const res = await axios.post('/logout', {}, { withCredentials: true });
         if (res.status == 200) {
             toast.success(res.data?.message);
